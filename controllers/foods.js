@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
-// List all food items in the user's pantry
+// list all food items in the user's pantry
 router.get('/', async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
@@ -13,12 +13,12 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Render form to add a new food item
+
 router.get('/new', (req, res) => {
   res.render('foods/new.ejs');
 });
 
-// Add a new food item to the user's pantry
+// adding a new food item to the user's pantry
 router.post('/', async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Show a specific food item (not common for simple food lists, but provided for completeness)
+// Show  specific food item
 router.get('/:itemId', async (req, res) => {
   try {
     const user = await User.findById(req.session.user._id);
